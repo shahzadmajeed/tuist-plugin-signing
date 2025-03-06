@@ -19,7 +19,11 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/tuist/tuist",
-            exact: "4.6.0"
+            exact: "4.43.2"
+        ),
+        .package(
+            url: "https://github.com/tuist/XcodeGraph.git",
+            exact: "1.8.4"
         ),
         .package(
             url: "https://github.com/apple/swift-tools-support-core",
@@ -31,7 +35,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/apple/swift-argument-parser.git",
-            exact: "1.3.0"
+            exact: "1.5.0"
         )
     ],
     targets: [
@@ -47,7 +51,7 @@ let package = Package(
             dependencies: [
                 .product(name: "TSCBasic", package: "swift-tools-support-core"),
                 .product(name: "TuistCore", package: "tuist"),
-                .product(name: "TuistGraph", package: "tuist"),
+                .product(name: "XcodeGraph", package: "XcodeGraph"),
                 .product(name: "TuistSupport", package: "tuist"),
                 .product(name: "TuistKit", package: "tuist"),
                 .product(name: "CryptoSwift", package: "CryptoSwift")
