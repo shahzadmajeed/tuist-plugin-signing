@@ -170,7 +170,7 @@ public final class SigningCipher: SigningCiphering {
         let aesCipher = try AES(key: masterKey.bytes, blockMode: CTR(iv: iv.bytes), padding: .noPadding)
         let unencryptedData = try FileHandler.shared.readFile(unencryptedFile)
         let encryptedBase64String = try aesCipher.encrypt(unencryptedData.bytes).toBase64()
-        guard let data = (iv.base64EncodedString() + "-" + encryptedBase64String).data(using: .utf8) else {
+        guard let encryptedBase64String, let data = (iv.base64EncodedString() + "-" + encryptedBase64String).data(using: .utf8) else {
             throw SigningCipherError.failedToEncrypt
         }
 
@@ -181,7 +181,7 @@ public final class SigningCipher: SigningCiphering {
         let iv = try generateIv()
         let aesCipher = try AES(key: masterKey.bytes, blockMode: CTR(iv: iv.bytes), padding: .noPadding)
         let encryptedBase64String = try aesCipher.encrypt(data.bytes).toBase64()
-        guard let data = (iv.base64EncodedString() + "-" + encryptedBase64String).data(using: .utf8) else {
+        guard let encryptedBase64String, let data = (iv.base64EncodedString() + "-" + encryptedBase64String).data(using: .utf8) else {
             throw SigningCipherError.failedToEncrypt
         }
         return data

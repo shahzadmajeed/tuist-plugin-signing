@@ -19,11 +19,11 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/tuist/tuist",
-            exact: "4.43.2"
+            exact: "4.44.1"
         ),
         .package(
             url: "https://github.com/tuist/XcodeGraph.git",
-            exact: "1.8.4"
+            exact: "1.8.8"
         ),
         .package(
             url: "https://github.com/apple/swift-tools-support-core",
@@ -31,7 +31,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/krzyzanowskim/CryptoSwift",
-            exact: "1.8.0"
+            from: "1.3.3"
         ),
         .package(
             url: "https://github.com/apple/swift-argument-parser.git",
